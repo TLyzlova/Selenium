@@ -17,6 +17,7 @@ class CardOrderTest {
 
     static void setUpAll() {
        WebDriverManager.chromedriver().setup();
+
    }
 
    @BeforeEach
@@ -28,6 +29,7 @@ class CardOrderTest {
        options.addArguments("--no-sandbox");
        options.addArguments("--headless");
        driver = new ChromeDriver(options);
+       driver.get("http://localhost:9999");
    }
 
    @AfterEach
