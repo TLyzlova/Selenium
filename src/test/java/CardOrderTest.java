@@ -23,7 +23,7 @@ class CardOrderTest {
    @BeforeEach
 
     void setUp(){
-       driver = new ChromeDriver();
+//       driver = new ChromeDriver();
        ChromeOptions options = new ChromeOptions();
        options.addArguments("start-maximized"); // open Browser in maximized mode
        options.addArguments("disable-infobars"); // disabling infobars
@@ -32,7 +32,6 @@ class CardOrderTest {
        options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
        options.addArguments("--no-sandbox");
        options.addArguments("--headless");
-       options.setHeadless(true);
        driver = new ChromeDriver(options);
    }
 
