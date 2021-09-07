@@ -32,6 +32,7 @@ class CardOrderTest {
        options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
        options.addArguments("--no-sandbox");
        options.addArguments("--headless");
+       options.setHeadless(true);
        driver = new ChromeDriver(options);
    }
 
