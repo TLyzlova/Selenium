@@ -11,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.openqa.selenium.By.cssSelector;
 
 class CardOrderTest {
+
     private WebDriver driver;
 
    @BeforeAll
@@ -23,13 +24,9 @@ class CardOrderTest {
    @BeforeEach
 
     void setUp(){
-//       driver = new ChromeDriver();
+
        ChromeOptions options = new ChromeOptions();
-       options.addArguments("start-maximized"); // open Browser in maximized mode
-       options.addArguments("disable-infobars"); // disabling infobars
-       options.addArguments("--disable-extensions"); // disabling extensions
-       options.addArguments("--disable-gpu"); // applicable to windows os only
-       options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
+       options.addArguments("--disable-dev-shm-usage");
        options.addArguments("--no-sandbox");
        options.addArguments("--headless");
        driver = new ChromeDriver(options);
@@ -52,7 +49,7 @@ class CardOrderTest {
        driver.findElement(cssSelector(".checkbox__box")).click();
        driver.findElement(cssSelector("button")).click();
        String expected = "Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.";
-       String actual = driver.findElement(cssSelector(".paragraph")).getText().trim();
+       String actual = driver.findElement(cssSelector("[data-test-id=order-success]")).getText().trim();
        assertEquals(expected, actual);
 
    }
